@@ -10,11 +10,13 @@ import PlaceOrder from "./pages/PlaceOrder";
 import NavBar from "./components/NavBar";
 import About from "./pages/About";
 import Footer from "./components/Footer";
+import SearchBar from "./components/SearchBar";
 
 // Layout component to include NavBar and Outlet for other routes
 const Layout = () => (
   <div>
     <NavBar />
+    <SearchBar />
     <Outlet />
     <Footer />
   </div>

@@ -6,7 +6,7 @@ import Title from "../components/Title.jsx";
 import ProductItem from "../components/ProductItem";
 
 function Collection() {
-  const { products } = useContext(ShopContext);
+  const { products , search, showSearch} = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -31,6 +31,10 @@ function Collection() {
 
   const applyFilter = () => {
     let productsCopy = products.slice();
+
+    if (search && showSearch) {
+      productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+    }
 
     if (category.length > 0) {
       productsCopy = productsCopy.filter((item) =>
@@ -69,7 +73,7 @@ function Collection() {
 
   useEffect(() => {
     applyFilter();
-  }, [category, subCategory]);
+  }, [category, subCategory, search, showSearch]);
 
   useEffect(() => {
     sortProduct();
@@ -98,28 +102,28 @@ function Collection() {
         >
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            <p className="flex gap-2">
+            <p className="flex gap-2 cursor-pointer">
               <input
                 type="checkbox"
-                className="w-3"
+                className="w-3 cursor-pointer"
                 value={`Men`}
                 onChange={toggleCategory}
               />{" "}
               Men
             </p>
-            <p className="flex gap-2">
+            <p className="flex gap-2 cursor-pointer">
               <input
                 type="checkbox"
-                className="w-3"
+                className="w-3 cursor-pointer"
                 value={`Women`}
                 onChange={toggleCategory}
               />{" "}
               Women
             </p>
-            <p className="flex gap-2">
+            <p className="flex gap-2 cursor-pointer">
               <input
                 type="checkbox"
-                className="w-3"
+                className="w-3 cursor-pointer"
                 value={`Kids`}
                 onChange={toggleCategory}
               />{" "}
@@ -134,29 +138,29 @@ function Collection() {
         >
           <p className="mb-3 text-sm font-medium">Type</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            <p className="flex gap-2">
+            <p className="flex gap-2 cursor-pointer">
               <input
                 onChange={toggleSubCategory}
                 type="checkbox"
-                className="w-3"
+                className="w-3 cursor-pointer"
                 value={`Topwear`}
               />{" "}
               Topwear
             </p>
-            <p className="flex gap-2">
+            <p className="flex gap-2 cursor-pointer">
               <input
                 onChange={toggleSubCategory}
                 type="checkbox"
-                className="w-3"
+                className="w-3 cursor-pointer"
                 value={`Bottomwear`}
               />{" "}
               Bottomwear
             </p>
-            <p className="flex gap-2">
+            <p className="flex gap-2 cursor-pointer">
               <input
                 onChange={toggleSubCategory}
                 type="checkbox"
-                className="w-3"
+                className="w-3 cursor-pointer"
                 value={`Winterwear`}
               />{" "}
               Winterwear
