@@ -44,7 +44,7 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/product/:ProductId",
+        path: "/product/:productId",
         element: <Product />,
       },
       {
