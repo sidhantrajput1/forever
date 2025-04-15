@@ -3,11 +3,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
+import RealtedProducts from "../components/RealtedProducts";
 
 const Product = () => {
   const { productId } = useParams();
   // console.log(productId);
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   // console.log(products);
   const [productData, setProductData] = useState();
   const [image, setImage] = useState();
@@ -25,7 +26,7 @@ const Product = () => {
 
   useEffect(() => {
     fetchProductData();
-  }, [productId]);
+  }, [productId, products]);
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
@@ -81,7 +82,7 @@ const Product = () => {
               ))}
             </div>
           </div>
-          <button className="bg-black text-white px-8 py-3 active:bg-gray-700 mt-4">
+          <button onClick={() => addToCart({ itemId: productData._id, size })} className="bg-black text-white px-8 py-3 active:bg-gray-700 mt-4">
             Add to Cart
           </button>
           <hr className="mt-8 sm:w-4/5"/>
@@ -104,7 +105,7 @@ const Product = () => {
         </div>
       </div>
       {/* ---Display related Product Product */}
-      <div className=""></div>
+      <RealtedProducts category={productData.category} subCategory={productData.subCategory}/>
     </div>
   ) : (
     <div className="opacity-0"></div>
