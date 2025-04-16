@@ -5,6 +5,7 @@ import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import RealtedProducts from "../components/RealtedProducts";
 
+
 const Product = () => {
   const { productId } = useParams();
   // console.log(productId);
@@ -82,7 +83,7 @@ const Product = () => {
               ))}
             </div>
           </div>
-          <button onClick={() => addToCart({ itemId: productData._id, size })} className="bg-black text-white px-8 py-3 active:bg-gray-700 mt-4">
+          <button onClick={() => addToCart({ itemId: productData._id, size })} className="bg-black text-white px-8 py-3 active:bg-gray-700 mt-4 cursor-pointer">
             Add to Cart
           </button>
           <hr className="mt-8 sm:w-4/5"/>

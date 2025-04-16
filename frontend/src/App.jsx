@@ -11,10 +11,13 @@ import NavBar from "./components/NavBar";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 // Layout component to include NavBar and Outlet for other routes
 const Layout = () => (
   <div>
+    <ToastContainer />
     <NavBar />
     <SearchBar />
     <Outlet />
