@@ -11,7 +11,7 @@ import NavBar from "./components/NavBar";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 // Layout component to include NavBar and Outlet for other routes
@@ -71,6 +71,8 @@ const appRouter = createBrowserRouter([
 ]);
 
 function App() {
+  // const navigate = useNavigate();
+  // console.log(navigate)
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[px-9vw]">
       <RouterProvider router={appRouter} />
