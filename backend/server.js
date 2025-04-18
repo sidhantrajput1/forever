@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import  'dotenv/config'
 import connectDB from './config/mongodb.js';
+import connectCloudinary from './config/cloudinary.js';
 
 // App config
 const app = express();
@@ -13,6 +14,8 @@ app.use(cors())
 
 // connect to the database
 connectDB()
+// connect to the cloudinary
+connectCloudinary()
 
 // api end point
 app.get('/', (req, res) => {
