@@ -3,6 +3,7 @@ import cors from 'cors'
 import  'dotenv/config'
 import connectDB from './config/mongodb.js';
 import connectCloudinary from './config/cloudinary.js';
+import userRouter from './routes/userRoutes.js';
 
 // App config
 const app = express();
@@ -18,9 +19,13 @@ connectDB()
 connectCloudinary()
 
 // api end point
+app.use('/api/v1/user', userRouter)
+
 app.get('/', (req, res) => {
     res.send("Hello from backend")
 })
+
+
 
 app.listen(PORT, (req, res) => {
     console.log(`Server started on PORT: http://localhost:${PORT}`)
