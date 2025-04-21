@@ -1,11 +1,16 @@
 
 import './App.css'
+import NavBar from './components/NavBar'
+import SideBar from './components/SideBar'
 
 function App() {
 
   return (
-    <div className="underline text-3xl font-bold">
-      <h3>Hello World</h3>
+    <div className="bg-gray-50 min-h-screen">
+      <NavBar />
+      <div className="flex w-full">
+        <SideBar />
+      </div> 
     </div>
   )
 }
