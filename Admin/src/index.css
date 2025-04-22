@@ -7,7 +7,7 @@
 }
 
 select,input,textarea {
-    border: 2px solid black;
+    border: 1px solid black;
     outline-color: black;
     border-radius: 4px;
 }
