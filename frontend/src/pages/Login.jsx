@@ -6,7 +6,7 @@ import axios from "axios";
 import {useNavigate} from 'react-router-dom'
 
 const Login = () => {
-  const [currentState, setCurrentState] = useState("Sign Up");
+  const [currentState, setCurrentState] = useState("Login");
   
   const {token, setToken, backendURL} = useContext(ShopContext)
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const Login = () => {
     try {
       if (currentState === "Sign Up") {
         const response = await axios.post(backendURL+"/api/v1/user/register", {name, email, password})
-        console.log(response.data)
+        // console.log(response.data)
 
         if (response.data.success) {
           setToken(response.data.token) 
@@ -39,7 +39,7 @@ const Login = () => {
 
       } else {
         const response = await axios.post(backendURL+"/api/v1/user/login", {email,password})
-        console.log(response.data)
+        // console.log(response.data)
 
         if (response.data.success) {
           setToken(response.data.token)
