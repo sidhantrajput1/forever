@@ -212,7 +212,7 @@ const Add = ({token}) => {
 
       <button
         type="submit"
-        className="w-28 py-3 mt-4 bg-black text-white rounded-md font-medium hover:bg-gray-800 transition-all duration-300 active:scale-95 shadow-md"
+        className="w-28 cursor-pointer py-3 mt-4 bg-black text-white rounded-md font-medium hover:bg-gray-800 transition-all duration-300 active:scale-95 shadow-md"
       >
         Add
       </button>
