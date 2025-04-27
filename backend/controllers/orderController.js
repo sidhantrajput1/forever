@@ -74,6 +74,15 @@ const allOrders = async (req, res) => {
 const userOrders = async (req, res) => {
     try {
         
+        const {userId} = req.body;
+
+        const order = await Order.find({ userId })
+
+        res.status(201).json({
+            success : true,
+            order
+        })
+
     } catch (error) {
         console.log(error)
         res.json({ success : false, message : error.message })
